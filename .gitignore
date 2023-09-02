@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+src/components/Register.css
+src/components/Register.jsx
+src/components/Register.scss
+src/components/Register.css
+.gitignore

@@ -1,114 +1,57 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Register.css';
+import React from 'react';
+import './Register.scss'; // Import your CSS file here if needed
 
 const Register = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-
-  // Function to handle password change
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-    if (e.target.value === confirmPassword) {
-      setIsButtonDisabled(false);
-      setError('');
-    } else {
-      setIsButtonDisabled(true);
-      setError('Passwords do not match');
-    }
-  };
-
-  // Function to handle confirm password change
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value);
-    if (e.target.value === password) {
-      setIsButtonDisabled(false);
-      setError('');
-    } else {
-      setIsButtonDisabled(true);
-      setError('Passwords do not match');
-    }
-  };
-
-  const handleRegister = () => {
-    // Check if the passwords match (additional check in case user submits with disabled button)
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      return;
-    }
-
-    // Validate email format (you can use a regular expression for more complex validation)
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      setError('Invalid email format');
-      return;
-    }
-
-    // Implement your registration logic here, e.g., making an API request to the backend
-    const userData = {
-      username,
-      email,
-      password,
-    };
-
-    // Send the 'userData' object to your server for registration
-  };
-
   return (
-    <>
-      <div className="form">
-        <h1>Register</h1>
-        <form>
-          <label>
-            Username:
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </label>
-          <br />
-          <label>
-            Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-          <br />
-          <label>
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-          </label>
-          <br />
-          <label>
-            Confirm Password:
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
-            />
-          </label>
-          <br />
-          <button className="registerbtn" onClick={handleRegister} disabled={isButtonDisabled}>
-            Register
-          </button>
-          {error && <p className="error">{error}</p>}
-        </form>
-        <p>
-          Already have an account? <Link to="/login">Login here</Link>
-        </p>
-      </div>
-    </>
+    <div className="container">
+      <header className="row text-center">
+        <div className="col logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Goodreads_logo.svg/2560px-Goodreads_logo.svg.png"
+            alt="goodreads-logo"
+          />
+        </div>
+      </header>
+      <main className="main row">
+        <div className="left col">
+          <img
+            src="https://img.freepik.com/premium-vector/young-woman-enjoy-sitting-reading-book-hygge-concept-vector-illustration_194708-2078.jpg"
+            alt="girl-reading-a-book"
+          />
+        </div>
+        <div className="right col">
+          <form className="sign-up">
+            <h4>Find your next favorite book!</h4>
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">Email</label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                placeholder="Enter your email"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="Create a password"
+              />
+            </div>
+            <button type="submit" className="btn submit-btn">Create account</button>
+          </form>
+          <p className="hr-lines"> OR </p>
+          <div className="social-sign-up">
+            <button className="btn social"><i className="fab fa-google"></i> Sign up with Google</button>
+          </div>
+          <div className="sign-in">
+            <p>Already have an account? <a href="#">Log in</a></p>
+          </div>
+        </div>
+      </main>
+    </div>
   );
 };
 
