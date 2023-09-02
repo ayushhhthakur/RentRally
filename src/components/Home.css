@@ -1,77 +1,110 @@
 /* Home.css */
 .home-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.home-text {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.home-text h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.home-text p {
+  font-size: 18px;
+  display: contents;
+  color: #888;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Display buttons in a column */
+  align-items: center; /* Center align buttons */
+}
+
+.book-button,
+.learn-more-button {
+  padding: 10px 20px;
+  margin: 10px 0; /* Add vertical margin between buttons */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%; /* Make buttons full-width */
+  max-width: 200px; /* Limit button width */
+  text-align: center; /* Center align button text */
+}
+
+.book-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.learn-more-button {
+  background-color: #ff5722;
+  color: #fff;
+}
+
+.book-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.learn-more-button:hover {
+  background-color: #ff451a;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.car-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Add margin between buttons and image */
+}
+
+.car-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
   }
-  
+
   .home-text {
-    flex: 1;
+    margin-top: 50px;
     text-align: center;
     padding: 20px;
   }
-  
-  .home-text h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-  
+
   .home-text p {
-    font-size: 18px;
-    color: #888;
+    display: contents;
+    text-align: center;
   }
-  
+
   .button-container {
-    margin-top: 20px;
+    margin-top: 40px;
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  .book-button {
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #007bff; /* Blue background color for 'Book Car' button */
-    color: #fff; /* White text color */
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-  }
-  
-  .learn-more-button {
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #ff5722; /* Orange background color for 'Learn More' button */
-    color: #fff; /* White text color */
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-  }
-  
-  .book-button:hover {
-    background-color: #0056b3; /* Darker blue on hover for 'Book Car' button */
-    transform: scale(1.05); /* Scale the button slightly on hover */
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
-  }
-  
-  .learn-more-button:hover {
-    background-color: #ff451a; /* Darker orange on hover for 'Learn More' button */
-    transform: scale(1.05); /* Scale the button slightly on hover */
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
-  }
-  
-  .car-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+
   .car-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+    margin-bottom: 90px;
   }
-  
+}
