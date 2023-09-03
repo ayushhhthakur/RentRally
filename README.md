@@ -1,6 +1,6 @@
 # Rent-a-Ride - An Online Car Renting System
 
-![Rent-a-Ride](url_to_your_logo.png)
+![Rent-a-Ride](homepage.png)
 
 ## Introduction
 
