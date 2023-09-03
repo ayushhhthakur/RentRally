@@ -1,46 +1,84 @@
-import React, { useState } from 'react';
-import './Navbar.css'
-import '../App.css'
+import { Link } from "react-router-dom";
+import Logo from "../images/logo/logo.png";
+import { useState } from "react";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+function Navbar() {
+  const [nav, setNav] = useState(false);
 
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
+  const openNav = () => {
+    setNav(!nav);
   };
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-logo">
-          <a href="/">Rent a Ride</a>
-        </div>
-
-        <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
-          <ul className="navbar-list">
-            <li className="navbar-item">
-              <a href="/">Home</a>
+    <>
+      <nav>
+        {/* mobile */}
+        <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
+          <div onClick={openNav} className="mobile-navbar__close">
+            <i className="fa-solid fa-xmark"></i>
+          </div>
+          <ul className="mobile-navbar__links">
+            <li>
+              <Link onClick={openNav} to="/">
+                Home
+              </Link>
             </li>
-            <li className="navbar-item">
-              <a href="/vehicles">Vehicles</a>
+            <li>
+              <Link onClick={openNav} to="/about">
+                About
+              </Link>
             </li>
-            <li className="navbar-item">
-              <a href="/pricing">Pricing</a>
+            <li>
+              <Link onClick={openNav} to="/team">
+                Our Team
+              </Link>
             </li>
-            <li className="navbar-item">
-              <a href="/contact">Contact</a>
+            <li>
+              <Link onClick={openNav} to="/contact">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
 
-        <div className="navbar-toggle" onClick={toggleNavbar}>
-          <div className={`bar ${isOpen ? 'open' : ''}`} />
-          <div className={`bar ${isOpen ? 'open' : ''}`} />
-          <div className={`bar ${isOpen ? 'open' : ''}`} />
+        {/* desktop */}
+
+        <div className="navbar">
+          <div className="navbar__img">
+            <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+              <img src={Logo} alt="logo-img" />
+            </Link>
+          </div>
+          <ul className="navbar__links">
+            <li>
+              <Link className="home-link" to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link className="contact-link" to="/contact">
+                Contact
+              </Link>
+            </li>
+          </ul>
+          <div className="navbar__buttons">
+            <Link className="navbar__buttons__sign-in" to="/">
+              Sign In
+            </Link>
+            <Link className="navbar__buttons__register" to="/">
+              Register
+            </Link>
+          </div>
+
+          {/* mobile */}
+          <div className="mobile-hamb" onClick={openNav}>
+            <i className="fa-solid fa-bars"></i>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
-};
+}
 
 export default Navbar;
