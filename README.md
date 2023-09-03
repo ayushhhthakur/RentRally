@@ -25,4 +25,4 @@ Rent-a-Ride is a closed system intended for private use. To utilize this platfor
 
 This project is not open-source and is protected under applicable copyright and intellectual property laws. Unauthorized reproduction, distribution, or cloning of this system is strictly prohibited.
 
-For inquiries or access requests, please contact [rentaride@gmail.com].
+For inquiries or access requests, please contact the [support team.](ayushthakur1412@gmail.com)
