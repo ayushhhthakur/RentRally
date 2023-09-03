@@ -1,2 +1,8 @@
 src/images/logo/ww.png
 node_modules
+
+# Local Netlify folder
+.netlify
+
+# Build files
+build/
