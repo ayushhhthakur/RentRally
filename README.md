@@ -1,7 +1,7 @@
-# Rent-A-Ride - An Online Car Renting System
+# Rent Rally - An Online Car Renting System
 
 
-![Rent-a-Ride](/homepade.png)
+![Rent Rally](/homepade.png)
 
 ## Introduction
 
@@ -19,7 +19,7 @@ Rent-a-Ride is a comprehensive online car renting system designed to streamline 
 
 ## Usage
 
-Rent-a-Ride is a closed system intended for private use. To utilize this platform, please contact the system administrator or the authorized person in charge for access and booking.
+Rent Rally is a closed system intended for private use. To utilize this platform, please contact the system administrator or the authorized person in charge for access and booking.
 
 ## License
 
