@@ -2,7 +2,7 @@ import Hero from "../components/Hero";
 import BookCar from "../components/BookCar";
 import PlanTrip from "../components/PlanTrip";
 import PickCar from "../components/PickCar";
-import Banner from "../components/Banner";
+// import Banner from "../components/Banner";
 import Faq from "../components/Faq";
 import Footer from "../components/Footer";
 
@@ -13,7 +13,7 @@ function Home() {
       <BookCar />
       <PlanTrip />
       <PickCar />
-      <Banner />
+      {/* <Banner /> */}
       <Faq />
       <Footer />
     </>

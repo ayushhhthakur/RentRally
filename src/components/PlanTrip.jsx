@@ -25,10 +25,10 @@ function PlanTrip() {
 
               <div className="plan-container__boxes__box">
                 <img src={Contact} alt="icon_img" />
-                <h3>Contact Operator</h3>
+                <h3>Confirm Order</h3>
                 <p>
-                  Our knowledgeable and friendly operators are always ready to
-                  help with any questions or concerns
+                Rest assured, our knowledgeable and friendly operators are standing by, 
+                ready to assist with any questions or concerns you may have. Your satisfaction is our priority.
                 </p>
               </div>
 
