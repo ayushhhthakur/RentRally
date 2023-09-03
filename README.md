@@ -1,10 +1,7 @@
-# Rent-a-Ride - An Online Car Renting System
+# Rent-A-Ride - An Online Car Renting System
 
-<<<<<<< HEAD
+
 ![Rent-a-Ride](/homepade.png)
-=======
-![Rent-a-Ride](homepage.png)
->>>>>>> 4b7c41c5db4790160ded0ad0bf3fba3f07c9d457
 
 ## Introduction
 
