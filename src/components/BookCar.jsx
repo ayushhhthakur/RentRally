@@ -167,6 +167,9 @@ function BookCar() {
     const doneMsg = document.querySelector(".booking-done");
     doneMsg.style.display = "none";
   };
+  const notAvailable = () => {
+    alert("The booking services will be availble soon.");
+  };
 
   return (
     <>
@@ -264,7 +267,10 @@ function BookCar() {
                   ></input>
                 </div>
 
-                <button onClick={openModal} type="submit">
+                <button 
+                // onClick={openModal}
+                onClick={notAvailable} 
+                type="submit">
                   Search
                 </button>
               </form>
