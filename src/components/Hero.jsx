@@ -39,7 +39,7 @@ function Hero() {
             <div className="hero-content__text">
               {/* <h4>Plan your trip now</h4> */}
               <h1>
-                Book your first <br/> <span>car</span> with <br/> Rent A Ride.
+                Rent your first <br/> <span>car</span> with <br/> Rent Rally.
               </h1>
               <p>
                 Rent the car of your dreams. Unbeatable prices,<br/>unlimited miles,
