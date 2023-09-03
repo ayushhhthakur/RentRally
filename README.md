@@ -1,4 +1,4 @@
-# RentRally - An Online Car Renting System
+# Rent-A-Ride - An Online Car Renting System
 
 
 ![Rent-a-Ride](/homepade.png)
