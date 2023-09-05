@@ -235,9 +235,9 @@ function BookCar() {
                     <option>Select pick up location</option>
                     <option>Bantlab</option>
                     <option>Gandhi Nagar</option>
-                    <option>Jewel</option>
+{/*                     <option>Jewel</option> */}
                     <option>Janipur</option>
-                    <option>Kachi Chawni</option>
+{/*                     <option>Kachi Chawni</option> */}
                   </select>
                 </div>
 
