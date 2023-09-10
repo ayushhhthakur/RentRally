@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Rent-a-Ride is a comprehensive online car renting system designed to streamline the process of renting vehicles. This platform is intended for private use and is not open for contributions or cloning.
+Rent-Rally is a comprehensive online car renting system designed to streamline the process of renting vehicles. This platform is intended for private use and is not open for contributions or cloning.
 
 ## Features
 
