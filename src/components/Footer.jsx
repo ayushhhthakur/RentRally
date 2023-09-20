@@ -33,7 +33,7 @@ function Footer() {
                   style={{ fontSize: "14px" }}
                   target="_blank"
                   rel="noreferrer"
-                  href="https://ayush-thaku.rnetlify.app/"
+                  href="https://ayush-thakur.netlify.app/"
                 >
                   Designed by Ayush
                 </a>
