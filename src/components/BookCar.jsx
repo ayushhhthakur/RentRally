@@ -268,8 +268,8 @@ function BookCar() {
                 </div>
 
                 <button 
-                onClick={openModal}
-                // onClick={notAvailable}
+                // onClick={openModal}
+                onClick={notAvailable}
                 type="submit">
                   Search
                 </button>

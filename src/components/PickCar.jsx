@@ -77,7 +77,7 @@ function PickCar() {
                     btnID("btn5");
                   }}
                 >
-                  Pulsar 180
+                  Audi A6
                 </button>
                 <button
                   className={`${coloringButton("btn6")}`}
@@ -87,7 +87,7 @@ function PickCar() {
                     btnID("btn6");
                   }}
                 >
-                  Activa 5g
+                  Scorpio
                 </button>
               </div>
 

@@ -1,9 +1,9 @@
 import Swift from "../images/cars-big/swift.jpg";
-import Kwid from "../images/cars-big/kwid.jpg";
+import Kwid from "../images/cars-big/Kwid.png";
 import i20 from "../images/cars-big/i20.jpeg";
 import Creta from "../images/cars-big/creta.png";
-import Pulsar from "../images/cars-big/pulsar-180.jpeg";
-import Activa from "../images/cars-big/activa.jpg";
+import Audi from "../images/cars-big/Audi.png";
+import Scorpio from "../images/cars-big/Scorpio.png";
 
 export const CAR_DATA = [
   [
@@ -64,30 +64,30 @@ export const CAR_DATA = [
   ],
   [
     {
-      name: "Pulsar 180",
-      price: "400",
-      img: Pulsar,
-      model: "Pulsar 180",
-      mark: "Bajaj",
-      year: "2012",
-      doors: "-",
-      air: "-",
-      transmission: "Manual",
+      name: "Audi A6",
+      price: "3000",
+      img: Audi,
+      model: "Audi A6",
+      mark: "Audi",
+      year: "2020",
+      doors: "5",
+      air: "Yes",
+      transmission: "Automatic",
       fuel: "Petrol",
     },
   ],
   [
     {
-      name: "Activa 5g",
-      price: "250",
-      img: Activa,
-      model: "Activa 5g",
-      mark: "Honda",
-      year: "2019",
-      doors: "-",
-      air: "-",
-      transmission: "-",
-      fuel: "Petrol",
+      name: "Scorpio",
+      price: "2000",
+      img: Scorpio,
+      model: "Scorpio N",
+      mark: "Mahindra",
+      year: "2023",
+      doors: "5",
+      air: "Yes",
+      transmission: "Automatic",
+      fuel: "Diesel",
     },
   ],
 ];
