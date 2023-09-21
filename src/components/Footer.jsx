@@ -43,26 +43,26 @@ function Footer() {
             <ul className="footer-content__2">
               <li>Company</li>
               <li>
-                <a href="#home">Jammu</a>
+                <a href="/">Jammu</a>
               </li>
               <li>
-                <a href="#home">Careers</a>
+                <a href="/">Careers</a>
               </li>
               <li>
-                <a href="#home">Mobile</a>
+                <a href="/">Mobile</a>
               </li>
               <li>
-                <a href="#home">Blog</a>
+                <a href="/">Blog</a>
               </li>
               <li>
-                <a href="#home">How we work</a>
+                <a href="/">How we work</a>
               </li>
             </ul>
 
             <ul className="footer-content__2">
               <li>Working Hours</li>
               <li>Mon - Fri: 9:00AM - 9:00PM</li>
-              <li>Sat: 9:00AM - 19:00PM</li>
+              <li>Sat: 10:00AM - 7:00PM</li>
               <li>Sun: Closed</li>
             </ul>
 
