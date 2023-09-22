@@ -3,8 +3,8 @@ import Swift from "../images/cars-big/swift.jpg";
 import Kwid from "../images/cars-big/kwid.jpg";
 import i20 from "../images/cars-big/i20.jpeg";
 import Creta from "../images/cars-big/creta.png";
-import Pulsar from "../images/cars-big/pulsar-180.jpeg";
-import Activa from "../images/cars-big/activa.jpg";
+import Audi from "../images/cars-big/Audi.png";
+import Scorpio from "../images/cars-big/Scorpio.png";
 // import emailjs from '@emailjs/browser';
 import emailjs from 'emailjs-com';
 
@@ -152,11 +152,11 @@ function BookCar() {
     case "Hyundai Creta":
       imgUrl = Creta;
       break;
-    case "Bajaj Pulsar 180":
-      imgUrl = Pulsar;
+    case "Audi A6":
+      imgUrl = Audi;
       break;
-    case "Honda Activa 5g":
-      imgUrl = Activa;
+    case "Mahindra Scorpio":
+      imgUrl = Scorpio;
       break;
     default:
       imgUrl = "";
@@ -206,8 +206,8 @@ function BookCar() {
                     <option value="Renault Kwid">Renault Kwid</option>
                     <option value="Hyundai i20">Hyundai i20</option>
                     <option value="Hyundai Creta">Hyundai Creta</option>
-                    <option value="Bajaj Pulsar 180">Pulsar 180</option>
-                    <option value="Honda Actiba 5g">Activa 5g</option>
+                    <option value="Audi A6">Audi A6</option>
+                    <option value="Mahindra Scorpio">Mahindra Scorpio</option>
                   </select>
                 </div>
 
@@ -370,7 +370,8 @@ function BookCar() {
                   type="text"
                   name="first_name"
                   placeholder="Enter your first name"
-                ></input>
+                  required
+                  ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
 
@@ -384,7 +385,8 @@ function BookCar() {
                   type="text"
                   name="last_name"
                   placeholder="Enter your last name"
-                ></input>
+                  required
+                  ></input>
                 <p className="error-modal ">This field is required.</p>
               </span>
 
@@ -398,7 +400,8 @@ function BookCar() {
                   type="tel"
                   name="message"
                   placeholder="Enter your phone number"
-                ></input>
+                  required
+                  ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
 
@@ -412,7 +415,8 @@ function BookCar() {
                   type="number"
                   name="message"
                   placeholder="18"
-                ></input>
+                  required
+                  ></input>
                 <p className="error-modal ">This field is required.</p>
               </span>
             </div>
@@ -425,10 +429,11 @@ function BookCar() {
                 <input
                   value={email}
                   onChange={handleEmail}
-                  name="message"
-                  type="email"
+                  name='email'
+                  type='email'
                   placeholder="Enter your email address"
-                ></input>
+                  required
+                  ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
 
@@ -439,8 +444,9 @@ function BookCar() {
                 <input
                   value={car}
                   onChange={handleSelectedCar}
-                  name="message"
+                  name="text"
                   type="text"
+                  required
                   placeholder="Enter the selected car"
                 ></input>
                 <p className="error-modal ">This field is required.</p>
@@ -458,6 +464,7 @@ function BookCar() {
                   name="message"
                   type="text"
                   placeholder="Enter you driving licence number"
+                  required
                 ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
@@ -472,6 +479,7 @@ function BookCar() {
                   name="message"
                   type="text"
                   placeholder="Enter your aadhar card number"
+                  required
                 ></input>
                 <p className="error-modal ">This field is required.</p>
               </span>
@@ -482,10 +490,10 @@ function BookCar() {
               <p>By selecting this checkbox, I confirm that I have read and agree to the terms and conditions, and I understand the obligations and responsibilities outlined therein."</p>
             </span>
 
-            <input onClick={confirmBooking} type="submit" value="Reserve Now" />
-            {/* <div className="reserve-button">
+            {/* <input onClick={confirmBooking} type="submit" value="Reserve Now" /> */}
+            <div className="reserve-button">
               <button onClick={confirmBooking}>Reserve Now</button>
-            </div> */}
+            </div>
           </form>
         </div>
       </div>
