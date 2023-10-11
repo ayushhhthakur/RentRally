@@ -1,36 +1,74 @@
-import React from 'react';
+// Login.js
+import React, { useState } from 'react';
+import {
+  LoginContainer,
+  Title,
+  Form,
+  Label,
+  Input,
+  SubmitButton,
+  ErrorMessage,
+} from './LoginStyles';
 
 const Login = () => {
-  return (
-    <div style={styles.container}>
-      <div style={styles.centerContent}>
-        <h1 style={styles.heading}>Coming Soon</h1>
-        <p style={styles.description}>
-          We are working on something amazing! Please check back later.
-        </p>
-      </div>
-    </div>
-  );
-};
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '100vh', // Makes the container take up the full viewport height
-  },
-  centerContent: {
-    textAlign: 'center',
-  },
-  heading: {
-    fontSize: '32px',
-    fontWeight: 'bold',
-    marginBottom: '20px',
-  },
-  description: {
-    fontSize: '18px',
-  },
+  const handleLogin = async () => {
+    try {
+      // Simple validation
+      if (!username || !password) {
+        setError('Please enter both username and password.');
+        return;
+      }
+
+      // Assuming you have a server endpoint for login
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Login successful
+        console.log(data.message);
+        setError('');
+      } else {
+        // Login failed
+        setError(data.message);
+      }
+    } catch (error) {
+      console.error('Login failed:', error.message);
+      setError('An error occurred while logging in.');
+    }
+  };
+
+  return (
+    <LoginContainer>
+      <Title>Login</Title>
+      <Form>
+        <Label>
+          Username:
+          <Input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        </Label>
+        <br />
+        <Label>
+          Password:
+          <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </Label>
+        <br />
+        <SubmitButton type="button" onClick={handleLogin}>
+          Login
+        </SubmitButton>
+      </Form>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+    </LoginContainer>
+  );
 };
 
 export default Login;

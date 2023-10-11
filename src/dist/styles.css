@@ -2078,3 +2078,32 @@ footer {
   box-shadow: 0 10px 15px 0 rgba(255, 83, 48, 0.6);
   background-color: #A034F7;
 }/*# sourceMappingURL=styles.css.map */
+
+
+
+
+/* Login css */
+
+/* Login.css */
+
+/* Login.css */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
