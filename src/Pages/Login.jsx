@@ -1,74 +1,60 @@
-// Login.js
-import React, { useState } from 'react';
-import {
-  LoginContainer,
-  Title,
-  Form,
-  Label,
-  Input,
-  SubmitButton,
-  ErrorMessage,
-} from './LoginStyles';
-
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+// import backgroundImage from '../assets/bg.jpg';
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      // Simple validation
-      if (!username || !password) {
-        setError('Please enter both username and password.');
-        return;
-      }
-
-      // Assuming you have a server endpoint for login
-      const response = await fetch('http://localhost:5000/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        // Login successful
-        console.log(data.message);
-        setError('');
-      } else {
-        // Login failed
-        setError(data.message);
-      }
-    } catch (error) {
-      console.error('Login failed:', error.message);
-      setError('An error occurred while logging in.');
-    }
+  const handleRegisterClick = () => {
+    // Redirect to the Signin page
+    navigate('/register');
   };
 
   return (
-    <LoginContainer>
-      <Title>Login</Title>
-      <Form>
-        <Label>
-          Username:
-          <Input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </Label>
-        <br />
-        <Label>
-          Password:
-          <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </Label>
-        <br />
-        <SubmitButton type="button" onClick={handleLogin}>
-          Login
-        </SubmitButton>
-      </Form>
-      {error && <ErrorMessage>{error}</ErrorMessage>}
-    </LoginContainer>
+    <Wrapper>
+      <body>
+      <form className="form">
+      <p className="title">Login </p>
+      <p className="message">Welcome Back</p>
+      <label>
+        <input required="" placeholder="Email" type="email" className="input" />
+      </label>
+
+      <label>
+        <input required="" placeholder="Password" type="password" className="input" />
+      </label>
+
+      <button className="submit">Submit</button>
+      <p className="signin">
+        Dont have an account?{' '}
+        <Link to="/register" onClick={handleRegisterClick}>
+          Sign Up
+        </Link>{' '}
+      </p>
+    </form>
+      </body>
+    </Wrapper>
+
   );
 };
+
+const Wrapper = styled.section`
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+form{
+  width: 450px;
+  padding: 36px;
+  background-color:#fff;
+  border-radius:8px;
+  }
+
+`;
 
 export default Login;

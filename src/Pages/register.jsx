@@ -1,36 +1,65 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  const handleSignInClick = () => {
+    // Redirect to the Signin page
+    navigate('/Login');
+  };
+
   return (
-    <div style={styles.container}>
-      <div style={styles.centerContent}>
-        <h1 style={styles.heading}>Coming Soon</h1>
-        <p style={styles.description}>
-          We are working on something amazing! Please check back later.
-        </p>
-      </div>
-    </div>
+    <Wrapper>
+      <body>
+        <form className="form">
+          <p className="title">Register </p>
+          <p className="message">Signup now and get full access to our app. </p>
+          <div className="flex">
+            <label>
+              <input required="" placeholder="Firstnme" type="text" className="input" />
+            </label>
+
+            <label>
+              <input required="" placeholder="Lastname" type="text" className="input" />
+            </label>
+          </div>
+
+          <label>
+            <input required="" placeholder="Email" type="email" className="input" />
+          </label>
+
+          <label>
+            <input required="" placeholder="Password" type="password" className="input" />
+          </label>
+
+          <label>
+            <input required="" placeholder="Confirm Password" type="password" className="input" />
+          </label>
+
+          <button className="submit">Submit</button>
+          <p className="signin">
+            Already have an account?{' '}
+            <Link to="/login" onClick={handleSignInClick}>
+              Sign in
+            </Link>{' '}
+          </p>
+        </form>
+      </body>
+    </Wrapper>
   );
 };
 
-const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '100vh', // Makes the container take up the full viewport height
-  },
-  centerContent: {
-    textAlign: 'center',
-  },
-  heading: {
-    fontSize: '32px',
-    fontWeight: 'bold',
-    marginBottom: '20px',
-  },
-  description: {
-    fontSize: '18px',
-  },
-};
+const Wrapper = styled.section`
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+`;
 
 export default Register;
