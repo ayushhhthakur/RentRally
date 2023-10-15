@@ -16,7 +16,7 @@ app.post('/api/register', async (req, res) => {
   try {
     const existingUser = await findUserByEmail(email);
     if (existingUser) {
-      res.status(400).json({ message: 'Email already exists' });
+      res.status(400).json({ message: 'A user with the provided email already exists!' });
     } else {
       await createUser({ firstName, lastName, email, password });
       res.status(201).json({ message: 'Registration successful' });
