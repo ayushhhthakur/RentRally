@@ -1,15 +1,16 @@
 import { useEffect, useState, useRef } from "react";
-import Swift from "../images/cars-big/swift.jpg";
-import Kwid from "../images/cars-big/kwid.jpg";
-import i20 from "../images/cars-big/i20.jpeg";
-import Creta from "../images/cars-big/creta.png";
+import Mustang from "../images/cars-big/mustang.png";
+import BmwX1 from "../images/cars-big/bmwx1.png";
+import GLA from "../images/cars-big/GLA.png";
+import sClass from "../images/cars-big/sClass.png";
 import Audi from "../images/cars-big/Audi.png";
-import Scorpio from "../images/cars-big/Scorpio.png";
+import AudiA4 from "../images/cars-big/audiA4.png";
 // import emailjs from '@emailjs/browser';
 import emailjs from 'emailjs-com';
+import { CAR_TYPES } from "./CarTypes";
 
 function BookCar() {
-  const [modal, setModal] = useState(false); //  class - active-modal
+  const [modal, setModal] = useState(false);
 
   // booking car
   const [carType, setCarType] = useState("");
@@ -19,17 +20,7 @@ function BookCar() {
   const [dropTime, setDropTime] = useState("");
   const [carImg, setCarImg] = useState("");
 
-  // modal infos
   const form = useRef();
-
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [age, setAge] = useState('');
-  const [email, setEmail] = useState('');
-  const [car, setCar] = useState("");
-  const [dlNumber, setDLNumber] = useState('');
-  const [aadharCardNumber, setAadharCardNumber] = useState('');
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -44,41 +35,27 @@ function BookCar() {
       });
   };
 
-
-  // taking value of modal inputs
-  const handleName = (e) => {
-    setName(e.target.value);
+  const resetForm = () => {
+    setCarType("");
+    setPickUp("");
+    setDropOff("");
+    setPickTime("");
+    setDropTime("");
+    setCarImg("");
+    setName("");
+    setLastName("");
+    setPhone("");
+    setAge("");
+    setEmail("");
+    setCar("");
+    setDLNumber("");
+    setAadharCardNumber("");
+    setTermsAgreed(false);
+    setIsFormValid(false);
   };
 
-  const handleLastName = (e) => {
-    setLastName(e.target.value);
-  };
 
-  const handlePhone = (e) => {
-    setPhone(e.target.value);
-  };
 
-  const handleAge = (e) => {
-    setAge(e.target.value);
-  };
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleSelectedCar = (e) => {
-    setCar(e.target.value);
-  };
-
-  const handleDL = (e) => {
-    setDLNumber(e.target.value);
-  };
-
-  const handleCard = (e) => {
-    setAadharCardNumber(e.target.value);
-  };
-
-  // open modal when all inputs are fulfilled
   const openModal = (e) => {
     e.preventDefault();
     const errorMsg = document.querySelector(".error-message");
@@ -98,7 +75,6 @@ function BookCar() {
     }
   };
 
-  // disable page scroll when modal is displayed
   useEffect(() => {
     if (modal === true) {
       document.body.style.overflow = "hidden";
@@ -107,12 +83,17 @@ function BookCar() {
     }
   }, [modal]);
 
-  // confirm modal booking
   const confirmBooking = (e) => {
-    e.preventDefault();
-    setModal(!modal);
-    const doneMsg = document.querySelector(".booking-done");
-    doneMsg.style.display = "flex";
+    if (!isFormValid) {
+      e.preventDefault();
+      window.alert('Please fill in all required fields before submitting.');
+    } else {
+      // e.preventDefault();
+      setModal(!modal);
+      const doneMsg = document.querySelector(".booking-done");
+      doneMsg.style.display = "flex";
+    }
+    resetForm();
   };
 
   // taking value of booking inputs
@@ -121,6 +102,10 @@ function BookCar() {
     setCarImg(e.target.value);
   };
 
+
+  const [minDropOff, setMinDropOff] = useState('');
+  const currentDate = new Date().toISOString().split('T')[0];
+  
   const handlePick = (e) => {
     setPickUp(e.target.value);
   };
@@ -130,37 +115,84 @@ function BookCar() {
   };
 
   const handlePickTime = (e) => {
-    setPickTime(e.target.value);
+    const selectedPickTime = e.target.value;
+    setPickTime(selectedPickTime);
+    setMinDropTime(selectedPickTime);
   };
+
 
   const handleDropTime = (e) => {
-    setDropTime(e.target.value);
+    const selectedDropTime = e.target.value;
+    setDropTime(selectedDropTime);
   };
 
-  // based on value name show car img
-  let imgUrl;
-  switch (carImg) {
-    case "Suzuki Swift":
-      imgUrl = Swift;
-      break;
-    case "Renault Kwid":
-      imgUrl = Kwid;
-      break;
-    case "Hyundai i20":
-      imgUrl = i20;
-      break;
-    case "Hyundai Creta":
-      imgUrl = Creta;
-      break;
-    case "Audi A6":
-      imgUrl = Audi;
-      break;
-    case "Mahindra Scorpio":
-      imgUrl = Scorpio;
-      break;
-    default:
-      imgUrl = "";
-  }
+  const setMinDropTime = (pickUpDate) => {
+    const minDropTime = new Date(pickUpDate);
+    minDropTime.setDate(minDropTime.getDate() + 1); // Set minimum drop-off date as the next day
+    const formattedMinDropTime = minDropTime.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+    setMinDropOff(formattedMinDropTime);
+  };
+
+
+  // Car Types Modles
+  const [carTypes, setCarTypes] = useState('');
+  const [selectedModel, setSelectedModel] = useState('');
+
+  const handleCarTypeChange = (event) => {
+    const selectedType = event.target.value;
+    setCarType(selectedType);
+    setSelectedModel('');
+  };
+
+  const handleModelChange = (event) => {
+    const selectedModel = event.target.value;
+    setSelectedModel(selectedModel);
+  };
+
+  const getModelsForCarType = () => {
+    const carTypeData = CAR_TYPES.find((car) => car.type === carType);
+    return carTypeData ? carTypeData.models : [];
+  };
+
+  const carImages = {
+    'Ford Mustang': Mustang,
+    'BMW X1': BmwX1,
+    'Mercedes-Benz GLA': GLA,
+    'Mercedes-Benz S-Class': sClass,
+    'Audi': Audi,
+    'Audi A4': AudiA4,
+  };
+  // Car Types Modles
+
+  // check if form is valid
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [age, setAge] = useState('');
+  const [email, setEmail] = useState('');
+  const [car, setCar] = useState('');
+  const [dlNumber, setDLNumber] = useState('');
+  const [aadharCardNumber, setAadharCardNumber] = useState('');
+  const [termsAgreed, setTermsAgreed] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const handleName = (e) => setName(e.target.value);
+  const handleLastName = (e) => setLastName(e.target.value);
+  const handlePhone = (e) => setPhone(e.target.value);
+  const handleAge = (e) => setAge(e.target.value);
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handleSelectedCar = (e) => setCar(e.target.value);
+  const handleDL = (e) => setDLNumber(e.target.value);
+  const handleCard = (e) => setAadharCardNumber(e.target.value);
+
+  const handleCheckboxChange = (e) => setTermsAgreed(e.target.checked);
+
+  useEffect(() => {
+    const formFields = [name, lastName, phone, age, email, car, dlNumber, aadharCardNumber];
+    const allFieldsFilled = formFields.every((field) => field.trim() !== '' && field !== null);
+    setIsFormValid(allFieldsFilled && termsAgreed);
+  }, [name, lastName, phone, age, email, car, dlNumber, aadharCardNumber, termsAgreed]);
+
 
   // hide message
   const hideMessage = () => {
@@ -174,7 +206,6 @@ function BookCar() {
   return (
     <>
       <section id="booking-section" className="book-section">
-        {/* overlay */}
         <div
           onClick={openModal}
           className={`modal-overlay ${modal ? "active-modal" : ""}`}
@@ -202,12 +233,12 @@ function BookCar() {
                   </label>
                   <select value={carType} onChange={handleCar}>
                     <option>Select your car type</option>
-                    <option value="Suzuki Swift">Suzuki Swift</option>
-                    <option value="Renault Kwid">Renault Kwid</option>
-                    <option value="Hyundai i20">Hyundai i20</option>
-                    <option value="Hyundai Creta">Hyundai Creta</option>
-                    <option value="Audi A6">Audi A6</option>
-                    <option value="Mahindra Scorpio">Mahindra Scorpio</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Convertible">Convertible</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Sports">Sports</option>
                   </select>
                 </div>
 
@@ -219,10 +250,6 @@ function BookCar() {
                   <select value={pickUp} onChange={handlePick}>
                     <option>Select your city</option>
                     <option>Jammu & Kashmir</option>
-                    {/* <option>Novi Sad</option>
-                    <option>Nis</option>
-                    <option>Kragujevac</option>
-                    <option>Subotica</option> */}
                   </select>
                 </div>
 
@@ -234,43 +261,43 @@ function BookCar() {
                   <select value={dropOff} onChange={handleDrop}>
                     <option>Select pick up location</option>
                     <option>Bantlab</option>
-                    <option>Gandhi Nagar</option>
-{/*                     <option>Jewel</option> */}
                     <option>Janipur</option>
-{/*                     <option>Kachi Chawni</option> */}
+                    <option>Kachi Chawni</option>
+                    <option>Gandhi Nagar</option>
+                    <option>Channi Himmat</option>
                   </select>
                 </div>
 
                 <div className="box-form__car-time">
-                  <label htmlFor="picktime">
-                    <i className="fa-regular fa-calendar-days "></i> &nbsp;
-                    Pick-up <b>*</b>
-                  </label>
-                  <input
-                    id="picktime"
-                    value={pickTime}
-                    onChange={handlePickTime}
-                    type="date"
-                  ></input>
-                </div>
+        <label htmlFor="picktime">
+          <i className="fa-regular fa-calendar-days"></i> &nbsp; Pick-up <b>*</b>
+        </label>
+        <input
+          id="picktime"
+          value={pickTime}
+          onChange={handlePickTime}
+          type="date"
+          min={currentDate} // Set minimum date as the current date
+        ></input>
+      </div>
 
-                <div className="box-form__car-time">
-                  <label htmlFor="droptime">
-                    <i className="fa-regular fa-calendar-days "></i> &nbsp;
-                    Drop-of <b>*</b>
-                  </label>
-                  <input
-                    id="droptime"
-                    value={dropTime}
-                    onChange={handleDropTime}
-                    type="date"
-                  ></input>
-                </div>
+      <div className="box-form__car-time">
+        <label htmlFor="droptime">
+          <i className="fa-regular fa-calendar-days"></i> &nbsp; Drop-off <b>*</b>
+        </label>
+        <input
+          id="droptime"
+          value={dropTime}
+          onChange={handleDropTime}
+          type="date"
+          min={minDropOff} // Set minimum date based on the pick-up date
+        ></input>
+      </div>
 
-                <button 
-                // onClick={openModal}
-                onClick={notAvailable}
-                type="submit">
+                <button
+                  onClick={openModal}
+                  // onClick={notAvailable}
+                  type="submit">
                   Search
                 </button>
               </form>
@@ -348,11 +375,45 @@ function BookCar() {
               </span>
             </div>
           </div>
-          <div className="booking-modal__car-info__model">
+          {/* <div className="booking-modal__car-info__model">
             <h5>
               <span>Car -</span> {carType}
             </h5>
             {imgUrl && <img src={imgUrl} alt="car_img" />}
+          </div> */}
+          <div className="booking-modal__car-info__model">
+            <h5>
+              <span>Car Type</span> {carTypes}
+            </h5>
+
+            {/* Dropdown for Car Type */}
+            <select value={carType} onChange={handleCarTypeChange}>
+              <option value="">Select Car Type</option>
+              {CAR_TYPES.map((car) => (
+                <option key={car.type} value={car.type}>
+                  {car.type}
+                </option>
+              ))}
+            </select>
+
+            {/* Dropdown for Car Model */}
+            {carType && (
+              <select value={selectedModel} onChange={handleModelChange}>
+                <option value="">Select Car Model</option>
+                {getModelsForCarType().map((model) => (
+                  <option key={model.name} value={model.name}>
+                    {model.name}
+                  </option>
+                ))}
+              </select>
+            )}
+
+            {selectedModel && (
+              <img
+                src={carImages[selectedModel]}
+                alt="car_img"
+              />
+            )}
           </div>
         </div>
         {/* personal info */}
@@ -371,8 +432,7 @@ function BookCar() {
                   name="first_name"
                   placeholder="Enter your first name"
                   required
-                  ></input>
-                <p className="error-modal">This field is required.</p>
+                />
               </span>
 
               <span>
@@ -386,8 +446,7 @@ function BookCar() {
                   name="last_name"
                   placeholder="Enter your last name"
                   required
-                  ></input>
-                <p className="error-modal ">This field is required.</p>
+                />
               </span>
 
               <span>
@@ -401,8 +460,7 @@ function BookCar() {
                   name="message"
                   placeholder="Enter your phone number"
                   required
-                  ></input>
-                <p className="error-modal">This field is required.</p>
+                />
               </span>
 
               <span>
@@ -416,8 +474,7 @@ function BookCar() {
                   name="message"
                   placeholder="18"
                   required
-                  ></input>
-                <p className="error-modal ">This field is required.</p>
+                />
               </span>
             </div>
 
@@ -429,12 +486,11 @@ function BookCar() {
                 <input
                   value={email}
                   onChange={handleEmail}
-                  name='email'
-                  type='email'
+                  name="email"
+                  type="email"
                   placeholder="Enter your email address"
                   required
-                  ></input>
-                <p className="error-modal">This field is required.</p>
+                />
               </span>
 
               <span>
@@ -448,8 +504,7 @@ function BookCar() {
                   type="text"
                   required
                   placeholder="Enter the selected car"
-                ></input>
-                <p className="error-modal ">This field is required.</p>
+                />
               </span>
             </div>
 
@@ -463,39 +518,40 @@ function BookCar() {
                   onChange={handleDL}
                   name="message"
                   type="text"
-                  placeholder="Enter you driving licence number"
+                  placeholder="Enter your driving licence number"
                   required
-                ></input>
-                <p className="error-modal">This field is required.</p>
+                />
               </span>
 
               <span>
                 <label>
-                  Aarhar Card Number<b>*</b>
+                  Aadhar Card Number <b>*</b>
                 </label>
                 <input
                   value={aadharCardNumber}
                   onChange={handleCard}
                   name="message"
                   type="text"
-                  placeholder="Enter your aadhar card number"
+                  placeholder="Enter your Aadhar card number"
                   required
-                ></input>
-                <p className="error-modal ">This field is required.</p>
+                />
               </span>
             </div>
 
             <span className="info-form__checkbox">
-              <input type="checkbox"></input>
-              <p>By selecting this checkbox, I confirm that I have read and agree to the terms and conditions, and I understand the obligations and responsibilities outlined therein."</p>
+              <input type="checkbox" onClick={handleCheckboxChange} required />
+              <p>
+                I confirm that I have read and agreed to the{' '}
+                <a href="/terms-and-conditions">terms and conditions</a>.
+              </p>
             </span>
 
-            {/* <input onClick={confirmBooking} type="submit" value="Reserve Now" /> */}
             <div className="reserve-button">
-              <button onClick={confirmBooking}>Reserve Now</button>
+              <button onClick={confirmBooking} disabled={!isFormValid}>Reserve Now</button>
             </div>
           </form>
         </div>
+
       </div>
     </>
   );

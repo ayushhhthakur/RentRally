@@ -24,6 +24,11 @@ function Navbar() {
               </Link>
             </li>
             <li>
+              <Link onClick={openNav} to="/cars">
+                Cars
+              </Link>
+            </li>
+            <li>
               <Link onClick={openNav} to="/contact">
                 Contact
               </Link>
@@ -43,6 +48,12 @@ function Navbar() {
             <li>
               <Link className="home-link" to="/">
                 Home
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link className="car-link" to="/cars">
+                Cars
               </Link>
             </li>
             <li>

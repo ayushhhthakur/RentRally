@@ -4,74 +4,7 @@ import Footer from '../components/Footer';
 import HeroPages from '../components/HeroPages';
 
 export const ContactUs = () => {
-//   const form = useRef();
-//   const [setIsFormSubmitted] = useState(false);
-
-//   const sendEmail = (e) => {
-//     e.preventDefault();
-
-//     emailjs
-//       .sendForm('service_w62nzho',
-//         'template_1x82yuz',
-//         {
-//           from_name: form.name,
-//           to_name: "Ayush Thakur",
-//           from_email: form.email,
-//           to_email: "ayushthakur1412@gmail.com",
-//           message: form.message,
-//         },
-//         'J2joeCP1S9xvjfV0x',
-//       )
-//       .then((result) => {
-//         console.log(result.text);
-//         setIsFormSubmitted(true);
-//         alert("Your Messege has been dilivered.");
-//         form.current.reset();
-//       })
-//       .catch((error) => {
-//         console.log(error.text);
-//       });
-//   };
-
-//   return (
-//     <div>
-//       <form ref={form} onSubmit={sendEmail}>
-//         <label>
-//           Full Name <b>*</b>
-//         </label>
-//         <input
-//           type="text"
-//           name="user_name"
-//           placeholder="Enter Full Name"
-//           required
-//         />
-
-//         <label>
-//           Email <b>*</b>
-//         </label>
-//         <input
-//           type="email"
-//           name="user_email"
-//           placeholder="youremail@example.com"
-//           required
-//         />
-
-//         <label>
-//           Tell us about it <b>*</b>
-//         </label>
-//         <textarea
-//           name="message"
-//           placeholder="Type your message here"
-//           required />
-
-//         <button type="submit">
-//           <i className="fa-solid fa-envelope-open-text"></i>&nbsp; Send Message
-//         </button>
-//       </form>
-//     </div>
-//   );
-// };
-
+  
 const formRef = useRef();
 const [form, setForm] = useState({
   name: "",

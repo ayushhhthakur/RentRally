@@ -21,7 +21,7 @@ function PickCar() {
           <div className="pick-container">
             <div className="pick-container__title">
               <h3>Vehicle Models</h3>
-              <h2>Our rental fleet</h2>
+              <h2>Our Top Cars</h2>
               <p>
                 Choose from a variety of our amazing vehicles to rent for your
                 next adventure or business trip
@@ -37,7 +37,7 @@ function PickCar() {
                     btnID("btn1");
                   }}
                 >
-                  Suzuki Swift
+                  Mercedes-Benz S-Class
                 </button>
                 <button
                   className={`${coloringButton("btn2")}`}
@@ -47,7 +47,7 @@ function PickCar() {
                     btnID("btn2");
                   }}
                 >
-                  Renault Kwid
+                  Mercedes-Benz GLA
                 </button>
                 <button
                   className={`${coloringButton("btn3")}`}
@@ -57,7 +57,7 @@ function PickCar() {
                     btnID("btn3");
                   }}
                 >
-                  Hyundai i20
+                  Mustang GT
                 </button>
                 <button
                   className={`${coloringButton("btn4")}`}
@@ -67,7 +67,7 @@ function PickCar() {
                     btnID("btn4");
                   }}
                 >
-                  Hyundai Creta
+                  BMW X1
                 </button>
                 <button
                   className={`${coloringButton("btn5")}`}
@@ -87,7 +87,7 @@ function PickCar() {
                     btnID("btn6");
                   }}
                 >
-                  Scorpio
+                  Audi A4
                 </button>
               </div>
 
