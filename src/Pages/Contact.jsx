@@ -78,7 +78,7 @@ return (
             name='name'
             value={form.name}
             onChange={handleChange}
-            placeholder="Enter your name?"
+            placeholder="Your name"
             required
           />
         <label>
@@ -89,7 +89,7 @@ return (
             name='email'
             value={form.email}
             onChange={handleChange}
-            placeholder="Enter your email address?"
+            placeholder="Your email address"
             required
           />
 
@@ -101,7 +101,7 @@ return (
             name='message'
             value={form.message}
             onChange={handleChange}
-            placeholder='What you want to say?'
+            placeholder='Your message here.'
             required
           />
 
