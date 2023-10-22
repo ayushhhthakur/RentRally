@@ -13,7 +13,7 @@ function BookCar() {
   const [modal, setModal] = useState(false);
 
   // booking car
-  const [carType, setCarType] = useState("");
+  const [carType, setAddress] = useState("");
   const [pickUp, setPickUp] = useState("");
   const [dropOff, setDropOff] = useState("");
   const [pickTime, setPickTime] = useState("");
@@ -36,7 +36,7 @@ function BookCar() {
   };
 
   const resetForm = () => {
-    setCarType("");
+    setAddress("");
     setPickUp("");
     setDropOff("");
     setPickTime("");
@@ -98,14 +98,14 @@ function BookCar() {
 
   // taking value of booking inputs
   const handleCar = (e) => {
-    setCarType(e.target.value);
+    setAddress(e.target.value);
     setCarImg(e.target.value);
   };
 
 
   const [minDropOff, setMinDropOff] = useState('');
   const currentDate = new Date().toISOString().split('T')[0];
-  
+
   const handlePick = (e) => {
     setPickUp(e.target.value);
   };
@@ -140,7 +140,7 @@ function BookCar() {
 
   const handleCarTypeChange = (event) => {
     const selectedType = event.target.value;
-    setCarType(selectedType);
+    setAddress(selectedType);
     setSelectedModel('');
   };
 
@@ -181,7 +181,7 @@ function BookCar() {
   const handlePhone = (e) => setPhone(e.target.value);
   const handleAge = (e) => setAge(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
-  const handleSelectedCar = (e) => setCar(e.target.value);
+  const handleAddress = (e) => setAddress(e.target.value);
   const handleDL = (e) => setDLNumber(e.target.value);
   const handleCard = (e) => setAadharCardNumber(e.target.value);
 
@@ -221,7 +221,7 @@ function BookCar() {
               </p>
 
               <p className="booking-done">
-                Check your email to confirm an order.{" "}
+                Your booking has been confirmed. Please check your email for more details.{" "}
                 <i onClick={hideMessage} className="fa-solid fa-xmark"></i>
               </p>
 
@@ -269,30 +269,30 @@ function BookCar() {
                 </div>
 
                 <div className="box-form__car-time">
-        <label htmlFor="picktime">
-          <i className="fa-regular fa-calendar-days"></i> &nbsp; Pick-up <b>*</b>
-        </label>
-        <input
-          id="picktime"
-          value={pickTime}
-          onChange={handlePickTime}
-          type="date"
-          min={currentDate} // Set minimum date as the current date
-        ></input>
-      </div>
+                  <label htmlFor="picktime">
+                    <i className="fa-regular fa-calendar-days"></i> &nbsp; Pick-up <b>*</b>
+                  </label>
+                  <input
+                    id="picktime"
+                    value={pickTime}
+                    onChange={handlePickTime}
+                    type="date"
+                    min={currentDate} // Set minimum date as the current date
+                  ></input>
+                </div>
 
-      <div className="box-form__car-time">
-        <label htmlFor="droptime">
-          <i className="fa-regular fa-calendar-days"></i> &nbsp; Drop-off <b>*</b>
-        </label>
-        <input
-          id="droptime"
-          value={dropTime}
-          onChange={handleDropTime}
-          type="date"
-          min={minDropOff} // Set minimum date based on the pick-up date
-        ></input>
-      </div>
+                <div className="box-form__car-time">
+                  <label htmlFor="droptime">
+                    <i className="fa-regular fa-calendar-days"></i> &nbsp; Drop-off <b>*</b>
+                  </label>
+                  <input
+                    id="droptime"
+                    value={dropTime}
+                    onChange={handleDropTime}
+                    type="date"
+                    min={minDropOff} // Set minimum date based on the pick-up date
+                  ></input>
+                </div>
 
                 <button
                   onClick={openModal}
@@ -461,6 +461,12 @@ function BookCar() {
                   placeholder="Enter your phone number"
                   required
                 />
+                {phone !== '' && /^\d{10}$/.test(phone) ? (
+                  <p style={{ color: 'green' }}>Valid phone number.</p>
+                ) : phone !== '' ? (
+                  <p style={{ color: 'red' }}>Please enter a valid 10-digit phone number.</p>
+                ) : null}
+
               </span>
 
               <span>
@@ -472,13 +478,19 @@ function BookCar() {
                   onChange={handleAge}
                   type="number"
                   name="message"
-                  placeholder="18"
+                  placeholder=""
                   required
                 />
+                {age !== '' && age >= 18 && age <= 65 ? (
+                  <p style={{ color: 'green' }}>Great! You're old enough to continue.</p>
+                ) : age !== '' ? (
+                  <p style={{ color: 'red' }}>Sorry, you must be between 18 - 65 to proceed.</p>
+                ) : null}
+
               </span>
             </div>
 
-            <div className="info-form__1col">
+            <div className="info-form__2col">
               <span>
                 <label>
                   Email <b>*</b>
@@ -491,19 +503,24 @@ function BookCar() {
                   placeholder="Enter your email address"
                   required
                 />
+                {email !== '' ? /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email) ? (
+                  <p style={{ color: 'green' }}>Valid email address.</p>
+                ) : (
+                  <p style={{ color: 'red' }}>Please enter a valid email address.</p>
+                ) : null}
               </span>
 
               <span>
                 <label>
-                  Selected Car <b>*</b>
+                  Address <b>*</b>
                 </label>
                 <input
                   value={car}
-                  onChange={handleSelectedCar}
+                  onChange={handleAddress}
                   name="text"
                   type="text"
                   required
-                  placeholder="Enter the selected car"
+                  placeholder="Enter your complete address."
                 />
               </span>
             </div>
@@ -521,6 +538,12 @@ function BookCar() {
                   placeholder="Enter your driving licence number"
                   required
                 />
+                {dlNumber !== '' ? (/^[A-Z]{2}[0-9]{2}(?:(19|20)\d{2})[0-9]{7}$/i.test(dlNumber.toUpperCase()) ? (
+                  <p style={{ color: 'green' }}>Valid DL number.</p>
+                ) : (
+                  <p style={{ color: 'red' }}>Please enter a valid DL number.</p>
+                )
+                ) : null}
               </span>
 
               <span>
@@ -535,6 +558,11 @@ function BookCar() {
                   placeholder="Enter your Aadhar card number"
                   required
                 />
+                {aadharCardNumber !== '' && /^\d{12}$/.test(aadharCardNumber) ? (
+                  <p style={{ color: 'green' }}>Aadhar number vaild.</p>
+                ) : aadharCardNumber !== '' ? (
+                  <p style={{ color: 'red' }}>Please enter a valid Aadhar card number.</p>
+                ) : null}
               </span>
             </div>
 
