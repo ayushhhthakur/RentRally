@@ -9,7 +9,7 @@ export const CAR_DATA = [
   [
     {
       name: "Mercedes-Benz GLA",
-      price: "10000",
+      price: "8000",
       img: GLA,
       model: "GLA",
       mark: "Mercedes",
@@ -23,7 +23,7 @@ export const CAR_DATA = [
   [
     {
       name: "Mercedes-Benz S-Class",
-      price: "10000",
+      price: "7000",
       img: sClass,
       model: "S-Class",
       mark: "Mercedes",
@@ -37,7 +37,7 @@ export const CAR_DATA = [
   [
     {
       name: "Mustang GT",
-      price: "7000",
+      price: "6000",
       img: Mustang,
       model: "Shelby",
       mark: "Ford",
@@ -51,7 +51,7 @@ export const CAR_DATA = [
   [
     {
       name: "BMW X1",
-      price: "8500",
+      price: "7000",
       img: BmwX1,
       model: "X1",
       mark: "BMW",
@@ -65,7 +65,7 @@ export const CAR_DATA = [
   [
     {
       name: "Audi A6",
-      price: "6500",
+      price: "5000",
       img: Audi,
       model: "A6",
       mark: "Audi",
@@ -79,7 +79,7 @@ export const CAR_DATA = [
   [
     {
       name: "Audi A4",
-      price: "6000",
+      price: "4000",
       img: AudiA4,
       model: "A4",
       mark: "Audi",
