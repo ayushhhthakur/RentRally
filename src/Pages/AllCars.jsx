@@ -7,13 +7,13 @@ const AllCarsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0 -10px; /* Add negative margin for spacing between boxes */
 `;
 
 const CarCard = styled.div`
-  width: 30%;
-  margin: 10px;
+  width: calc(25% - 20px); /* Set the width for 4 boxes in one row with spacing */
+  margin: 10px; /* Add spacing around each box */
   border: 1px solid #ccc;
-  padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 
@@ -23,13 +23,14 @@ const CarCard = styled.div`
 `;
 
 const CarImage = styled.img`
-  max-width: 100%;
+  width: 100%;
   height: auto;
 `;
 
-const CarDetails = styled.div`
-  margin-top: 10px;
-`;
+const CarCaption = styled.div`
+  padding: 10px;
+  text-align: center;
+}`;
 
 const CarName = styled.h3`
   font-size: 18px;
@@ -42,6 +43,21 @@ const CarPrice = styled.p`
 
 const CarDescription = styled.p`
   margin: 5px 0;
+`;
+
+const BookButton = styled.button`
+  /* Define your button styles here */
+  background-color: #0074d9;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  /* Add hover effect */
+  &:hover {
+    background-color: #0056b3;
+  }
 `;
 
 const SearchContainer = styled.div`
@@ -68,12 +84,15 @@ function AllCars() {
     car.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Sort the filtered cars by price (from low to high)
+  filteredCars.sort((a, b) => parseFloat(a.price.replace('$', '').replace(',', '')) - parseFloat(b.price.replace('$', '').replace(',', '')));
+
   return (
     <>
       <HeroPages name="Vehicles" />
       <div className="search__text">
-          <h1>Search for cars</h1>
-        </div>
+        <h1>Search for cars</h1>
+      </div>
       <SearchContainer>
         <SearchInput
           type="text"
@@ -86,11 +105,12 @@ function AllCars() {
         {filteredCars.map((car, index) => (
           <CarCard key={index}>
             <CarImage src={car.image} alt={car.name} />
-            <CarDetails>
+            <CarCaption>
               <CarName>{car.name}</CarName>
-              <CarPrice>Price: {car.price}</CarPrice>
+              <CarPrice>Price: ₹{car.price}</CarPrice>
               <CarDescription>{car.description}</CarDescription>
-            </CarDetails>
+              <BookButton>Book now</BookButton>
+            </CarCaption>
           </CarCard>
         ))}
       </AllCarsContainer>
