@@ -1,0 +1,39 @@
+[[redirects]]
+  from = "/"
+  to = "/home"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact"
+  status = 200
+
+[[redirects]]
+  from = "/login"
+  to = "/login"
+  status = 200
+
+[[redirects]]
+  from = "/register"
+  to = "/register"
+  status = 200
+
+[[redirects]]
+  from = "/LearnMore"
+  to = "/LearnMore"
+  status = 200
+
+[[redirects]]
+  from = "/cars"
+  to = "/cars"
+  status = 200
+
+[[redirects]]
+  from = "/terms-and-conditions"
+  to = "/terms-and-conditions"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
