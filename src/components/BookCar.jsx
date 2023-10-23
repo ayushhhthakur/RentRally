@@ -18,7 +18,7 @@ function BookCar() {
   const [dropOff, setDropOff] = useState("");
   const [pickTime, setPickTime] = useState("");
   const [dropTime, setDropTime] = useState("");
-  const [carImg, setCarImg] = useState("");
+  const [, setCarImg] = useState(""); //removed setImg " const [setImg, setCarImg] = useState("");"
 
   const form = useRef();
 
@@ -135,7 +135,7 @@ function BookCar() {
 
 
   // Car Types Modles
-  const [carTypes, setCarTypes] = useState('');
+  const [carTypes] = useState(''); //removed setCarTypes "const [carTypes, setCarTypes] = useState('');"
   const [selectedModel, setSelectedModel] = useState('');
 
   const handleCarTypeChange = (event) => {
@@ -199,9 +199,9 @@ function BookCar() {
     const doneMsg = document.querySelector(".booking-done");
     doneMsg.style.display = "none";
   };
-  const notAvailable = () => {
-    alert("The booking services will be availble soon.");
-  };
+  // const notAvailable = () => {
+  //   alert("The booking services will be availble soon.");
+  // };
 
   return (
     <>
