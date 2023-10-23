@@ -47,7 +47,7 @@ function BookCar() {
     setPhone("");
     setAge("");
     setEmail("");
-    setCar("");
+    setAdd("");
     setDLNumber("");
     setAadharCardNumber("");
     setTermsAgreed(false);
@@ -170,7 +170,7 @@ function BookCar() {
   const [phone, setPhone] = useState('');
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
-  const [car, setCar] = useState('');
+  const [address, setAdd] = useState('');
   const [dlNumber, setDLNumber] = useState('');
   const [aadharCardNumber, setAadharCardNumber] = useState('');
   const [termsAgreed, setTermsAgreed] = useState(false);
@@ -188,10 +188,10 @@ function BookCar() {
   const handleCheckboxChange = (e) => setTermsAgreed(e.target.checked);
 
   useEffect(() => {
-    const formFields = [name, lastName, phone, age, email, car, dlNumber, aadharCardNumber];
+    const formFields = [name, lastName, phone, age, email, address, dlNumber, aadharCardNumber];
     const allFieldsFilled = formFields.every((field) => field.trim() !== '' && field !== null);
     setIsFormValid(allFieldsFilled && termsAgreed);
-  }, [name, lastName, phone, age, email, car, dlNumber, aadharCardNumber, termsAgreed]);
+  }, [name, lastName, phone, age, email, address, dlNumber, aadharCardNumber, termsAgreed]);
 
 
   // hide message
@@ -515,12 +515,12 @@ function BookCar() {
                   Address <b>*</b>
                 </label>
                 <input
-                  value={car}
+                  value={address}
                   onChange={handleAddress}
-                  name="text"
+                  name="address"
                   type="text"
-                  required
                   placeholder="Enter your complete address."
+                  required
                 />
               </span>
             </div>

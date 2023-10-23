@@ -87,6 +87,12 @@ function AllCars() {
   // Sort the filtered cars by price (from low to high)
   filteredCars.sort((a, b) => parseFloat(a.price.replace('$', '').replace(',', '')) - parseFloat(b.price.replace('$', '').replace(',', '')));
 
+
+  const handleBookNowClick = (carName) => {
+    window.alert(`Bookings for ${carName} will be available soon!`);
+  }
+
+
   return (
     <>
       <HeroPages name="Vehicles" />
@@ -109,7 +115,7 @@ function AllCars() {
               <CarName>{car.name}</CarName>
               <CarPrice>Price: ₹{car.price}</CarPrice>
               <CarDescription>{car.description}</CarDescription>
-              <BookButton>Book now</BookButton>
+              <BookButton onClick={() => handleBookNowClick(car.name)}>Book now</BookButton>
             </CarCaption>
           </CarCard>
         ))}
