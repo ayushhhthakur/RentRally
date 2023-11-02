@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { createUser, findUserByEmail } = require('./db'); // Update the path accordingly
+const { createUser, findUserByEmail } = require('./db');
 
 const app = express();
 const PORT = 3001;
