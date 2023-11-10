@@ -1,11 +1,15 @@
 # Rent Rally - An Online Car Renting System
 
 
-![Rent Rally](/homepade.png)
+![Rent Rally](homepade.png)
 
 ## Introduction
 
 Rent-Rally is a comprehensive online car renting system designed to streamline the process of renting vehicles. This platform is intended for private use and is not open for contributions or cloning.
+
+## Demo
+
+Check out the [live demo](https://rentrally.netlify.app/).
 
 ## Features
 
