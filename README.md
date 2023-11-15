@@ -9,7 +9,7 @@ Rent-Rally is a comprehensive online car renting system designed to streamline t
 
 ## Demo
 
-Check out the [live demo](https://rentrally.netlify.app/).
+Check out the [live demo](https://rentrally.netlify.app/). (Under Construction)
 
 ## Features
 
