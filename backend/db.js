@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/rentrally.users', {
+mongoose.connect('mongodb://localhost:27017/rentrally.users', { // use .env for mongoDB credentials
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
