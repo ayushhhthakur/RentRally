@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import BgShape from "../images/hero/hero-bg.png";
 // import HeroCar from "../images/hero/main-car.png";
-import HeroCar from "../images/cars-big/GLA.png";
+import HeroCar from "../images/cars-big/GLA.png"; // Home Page Display Image
 
 import { useEffect, useState } from "react";
 
@@ -39,7 +39,7 @@ function Hero() {
           <img className="bg-shape" src={BgShape} alt="bg-shape" />
           <div className="hero-content">
             <div className="hero-content__text">
-              {/* <h4>Plan your trip now</h4> */}
+              <h4>Plan your trip now</h4>
               <h1>
                 Rent your first <br/> <span>car</span> with <br/> Rent Rally.
               </h1>
