@@ -9,7 +9,6 @@ const PORT = 3001;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Registration endpoint
 app.post('/api/register', async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
 
