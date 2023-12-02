@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 
-// Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/rentrally.users', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-// Create a user schema
 const userSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
@@ -16,7 +14,6 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Export the model and functions for database operations
 module.exports = {
   User,
   createUser: async (userData) => {
