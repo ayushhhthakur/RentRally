@@ -1,7 +1,7 @@
 # Rent Rally - An Online Car Renting System
 
 
-![Rent Rally](homepade.png)
+![Rent Rally](/homepade.png)
 
 ## Introduction
 
