@@ -3,6 +3,11 @@ import { RENT_CAR_DATA } from '../components/RentCars';
 import styled from 'styled-components';
 import HeroPages from '../components/HeroPages';
 
+const AllCar = styled.div`
+aspect-ratio: 3/2;
+object-fit: contain;
+`;
+
 const AllCarsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -94,7 +99,7 @@ function AllCars() {
 
 
   return (
-    <>
+    <AllCar>
       <HeroPages name="Vehicles" />
       <div className="search__text">
         <h1>Search for cars</h1>
@@ -120,7 +125,7 @@ function AllCars() {
           </CarCard>
         ))}
       </AllCarsContainer>
-    </>
+    </AllCar>
   );
 }
 
