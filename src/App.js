@@ -9,10 +9,12 @@ import LearnMore from "./Pages/LearnMore";
 import AllCars from "./Pages/AllCars";
 import Footer from "./components/Footer";
 import TermsAndConditions from "./Pages/TermsAndConditions";
+import Alert from "./components/Alert";
 
 function App() {
   return (
     <>
+    <Alert />
       <Navbar />
       <Routes>
         <Route index path="/" element={<Home />} />
